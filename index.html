@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		html{
+			text-align: center;
+		}
+		.img{
+			margin: 0 auto;
+			width: 600px;
+		}
+		button{
+			-webkit-appearance: none;
+			/*background: #fff;*/
+			border: 0 none;
+			background: #ccc;
+			color: #fff;
+			padding: 10px;
+			font-size: 1em;
+			outline: none;
+			cursor: pointer;
+			border-radius: 3px;
+		}
+	</style>
+</head>
+<body>
+	<div class="img">
+		<svg version="1.1" id="mac" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+			 width="500px" height="600px" viewBox="0 0 500 600" enable-background="new 0 0 500 600" xml:space="preserve">
+		<path fill="none" stroke="#666666" stroke-width="3" stroke-miterlimit="10" d="M64.824,161.303l380.107-93.46l-18.235,282.659
+			L42.599,383.556L64.824,161.303z"/>
+		<path fill="none" stroke="#666666" stroke-width="3" stroke-miterlimit="10" d="M66.343,144.587c0,0-5.156,0.744-8.88,4.179
+			c-3.034,2.798-4.685,7.195-5.367,15.957L24.172,429.906c0,0-2.659,10.258,8.169,10.828l395.875-16.147
+			c0,0,14.058,0.569,15.197-15.007l23.82-360.524c0,0,0.046-9.998-17.741-5.526L66.343,144.587z"/>
+		<path fill="none" stroke="#666666" stroke-width="3" stroke-miterlimit="10" d="M29.221,440.217c0,0,9.579,5.077,15.087,4.316
+			l392.647-14.627c0,0,14.437,0.57,16.526-14.438l22.604-353.703c0,0,1.141-7.788-10.357-16.441"/>
+		<path fill="none" stroke="#666666" stroke-width="3" stroke-miterlimit="10" d="M27.157,401.562l418.823-30.834"/>
+		<path fill="none" stroke="#666666" stroke-width="3" stroke-miterlimit="10" d="M319.864,434.268l8.528,31.637
+			c0,0,6.597,25.359-8.528,25.359l-42.335,3.263c0,0-7.381,0.447-10.007,0.447c-1.032,0-3.954,0.021-3.954,0.021l-114.379-0.027
+			c0,0-1.114,0.093-1.164-0.065c-0.108-0.347,0.931-0.343,0.931-0.343l71.444-3.581c0,0,18.243,1.141,18.239-21.085l-2.071-32.521"/>
+		<path fill="none" stroke="#666666" stroke-width="3" stroke-miterlimit="10" d="M323.278,434.142l8.818,33.188
+			c0,0,6.3,25.074-8.818,29.062h-44.751l-9.26,0.761l-12.68-0.47l-98.447,0.137c0,0-8.216-0.351-10.115-1.918"/>
+		<path fill="none" stroke="#666666" stroke-width="3" stroke-miterlimit="10" d="M239.59,109.398
+			c-0.294,1.626-1.506,2.768-2.706,2.55c-1.2-0.217-1.935-1.711-1.64-3.337c0.293-1.625,1.505-2.768,2.704-2.55
+			C239.15,106.278,239.884,107.771,239.59,109.398z"/>
+		<path fill="none" stroke="#666666" stroke-width="3" stroke-miterlimit="10" d="M237.73,477.687h92.088"/>
+		<path fill="none" stroke="#666666" stroke-width="3" stroke-miterlimit="10" d="M466.798,167.859l-6.98,102.08"/>
+		<path fill="none" stroke="#666666" stroke-width="3" stroke-miterlimit="10" d="M459.464,276.848l-1.389,22.509"/>
+		</svg>
+	</div>
+	<button class="draw"> Draw My iMac </button>
+	<script src="jquery.js"></script>
+	<script>
+		(function($){
+			
+      var draw = function(){
+				var path = $('path');
+				// console.log(path);
+				path.each(function(){
+					var path = this;
+		       var length = path.getTotalLength();
+		       path.style.transition = path.style.WebkitTransition ='none';
+		       path.style.strokeDasharray = length + ' ' + length;
+		       path.style.strokeDashoffset = length;
+		       path.getBoundingClientRect();
+		       path.style.transition = path.style.WebkitTransition ='stroke-dashoffset 2s ease-in-out';
+		       path.style.strokeDashoffset = '0';
+	      }); 
+      };
+
+      $('button').click(function(){
+      	draw();
+      });
+
+		})(jQuery)
+	</script>
+</body>
+</html>
